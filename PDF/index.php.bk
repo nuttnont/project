@@ -1,0 +1,1298 @@
+<?php  
+ function fetch_data()  
+ {  
+      $output = '';  
+      $conn = mysqli_connect("localhost", "root", "", "urmoodco_project");  
+      $sql = "SELECT * FROM license ORDER BY License_id ASC";
+      $sql = "SELECT * FROM mine ORDER BY Mine_Id ASC";    
+      $result = mysqli_query($conn, $sql);  
+      while($row = mysqli_fetch_array($result))  
+      {       
+      /*$output .= '<tr>  
+                          <td>'.$row["id"].'</td>  
+                          <td>'.$row["name"].'</td>  
+                          <td>'.$row["age"].'</td>  
+                          <td>'.$row["email"].'</td>  
+                     </tr>  
+                          '; */ 
+
+     $output .= '<div class="pdf-form">
+     <div class="part-one">
+          <div class="p-logo text-center"><img style="max-width: 300px;" src="logo.jpg" alt=""></div>
+          <div class="p-head" style="text-align: center;">                       
+               <table style="width:100%">
+                    <tr>
+                         <td>กรมอุตุหกรรมพื้นฐานและการเหมืองแร่</td>
+                    </tr>
+                    <tr style="width:100%;text-align:center;">
+                         <td class="p-head--sm">รายงานการทำเหมืืองประจำเดือน <span class="dot w-12">Test</span> พ.ศ. <span class="dot w-7">Test</span></td>
+                    </tr>
+               </table>
+          </div>  
+          <div class="p-body" style="width: 100%">
+               <table class="" style="width:100%">
+                    <tr>
+                         <td class="p-btm-5 ">1. รายละเอียดผู้ถือประทานบัตร</td>
+                    </tr>
+                    <tr>
+                         <td class="p-btm-5">
+                              <p class="p-wrap p-left-15">
+                                   <span>ชื่อผู้ถือประทานบัตร</span> 
+                                   <span class="dot" style="width:60%;">Test</span>
+                                   <span>เลขที่</span>
+                                   <span class="dot" style="width: 27%;">Test</span>
+                              </p>
+                         </td>
+                    </tr>
+                    <tr>
+                         <td class="p-btm-5">
+                              <p class="p-wrap p-left-15">
+                                   <span>ตั้งอยู่ที่ ตำบล</span> 
+                                   <span class="dot" style="width:25%;">Test</span>
+                                   <span>อำเภอ</span>
+                                   <span class="dot" style="width:25.2%;">Test</span>
+                                   <span>จังหวัด</span>
+                                   <span class="dot" style="width:36%;">'.$_POST["License_Province"].'</span>
+                              </p>
+                         </td>
+                    </tr>
+                    <tr>
+                         <td class="p-btm-5">
+                              <p class="p-wrap p-left-15">
+                                   <span>ประทานบัตรสิ้นอายุ วันที่  </span> 
+                                   <span class="dot" style="width:25%;">Test</span>
+                                   <span>เดือน </span>
+                                   <span class="dot" style="width:26.5%;">Test</span>
+                                   <span>พ.ศ. </span>
+                                   <span class="dot" style="width:31%;">Test</span>
+                              </p>
+                         </td>
+                    </tr>
+               </table>
+               <table style="width:100%">
+                    <tr>
+                         <td class="p-btm-5">
+                              <p class="p-wrap">
+                                   <span>2. ชื่อผู้รับช่วงการทำเหมือง </span>
+                                   <span class="dot" style="width:86.4%;">Test</span>
+                              </p>
+                         </td>
+                    </tr>
+               </table>
+               <table style="width:100%">
+                    <tr>
+                         <td class="p-btm-5">
+                              <p class="p-wrap">
+                                   <span>3. ชื่อผู้ชนิดแร่รับช่วงการทำเหมือง </span>
+                                   <span class="dot" style="width:82.9%;">Test</span>
+                              </p>
+                         </td>
+                    </tr>
+               </table>
+               <table style="width:100%">
+               <td class="p-btm-5">
+                    <tr>
+                              <p class="p-wrap">
+                                   <span>4. ชื่อวิศวกรผู้ควบคุม </span>
+                                   <span class="dot" style="width:50%;">Test</span>
+                                   <span>เลขที่ใบอนุญาตประกอบอาชีพ</span>
+                                   <span class="dot" style="width:24.5%;">Test</span>
+                              </p>
+                         </td>
+                    </tr>
+               </table>
+               <table style="width:100%">
+               <td class="p-btm-5">
+                    <tr>
+                              <p class="p-wrap">
+                                   <span>5. เนื้อที่ที่ได้รับประทานบัตร จำนวน</span>
+                                   <span class="dot" style="width:11%;">Test</span>
+                                   <span style="width:5%;">แปลง</span>
+                                   <span>รวมเนื้อที่</span>
+                                   <span class="dot" style="width:18%;">Test</span>
+                                   <span>ไร่</span>
+                                   <span class="dot" style="width:18%;">Test</span>
+                                   <span>งาน</span>
+                                   <span class="dot" style="width:18%;">Test</span>
+                                   <span>ตารางวา</span>
+                              </p>
+                         </td>
+                    </tr>
+                    <tr>
+                         <p class="p-wrap p-left-15">
+                         <span>1) เนื้อที่ทำเหมืองในพื้นที่เดิม</span> 
+                         <span style="width:18%;"></span>
+                         <span>จำนวน</span>
+                         <span class="dot" style="width:19.5%;">Test</span>
+                         <span>ไร่</span>
+                         <span class="dot" style="width:18%;">Test</span>
+                         <span>งาน</span>
+                         <span class="dot" style="width:18.5%;">Test</span>
+                         <span>ตารางวา</span>
+                         </p>     
+                    </tr>
+                    <tr>
+                         <p class="p-wrap p-left-15">
+                         <span>2) เนื้อที่ทำเหมืองในพื้นที่ใหม่ในเดือนนี้</span> 
+                         <span style="width:13%;"></span>
+                         <span>จำนวน</span>
+                         <span class="dot" style="width:19.5%;">Test</span>
+                         <span>ไร่</span>
+                         <span class="dot" style="width:18%;">Test</span>
+                         <span>งาน</span>
+                         <span class="dot" style="width:18.5%;">Test</span>
+                         <span>ตารางวา</span>
+                         </p>     
+                    </tr>
+               </table>
+               <table style="width:100%">
+               <td class="p-btm-5">
+                    <tr>
+                              <p class="p-wrap">
+                                   <span>6. รวมเนื้อที่การทำเหมือง</span>
+                                   <span style="width:21%;"></span>
+                                   <span>จำนวน</span>
+                                   <span class="dot" style="width:19.2%;">Test</span>
+                                   <span>ไร่</span>
+                                   <span class="dot" style="width:18%;">Test</span>
+                                   <span>งาน</span>
+                                   <span class="dot" style="width:18%;">Test</span>
+                                   <span>ตารางวา</span>
+                              </p>
+                         </td>
+                    </tr>   
+               </table>
+               
+               <table style="width:100%">
+               <td class="p-btm-5">
+                    <tr>
+                         <p class="p-wrap p-left-15">
+                         <span>   รายละเอียดเครื่องจักรและอุปกรณ์ในการทำเหมือง</span>     
+                    </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>1) </span>
+                              <span style="width:1%;"></span>
+                              <span>รถแทรกเตอร์</span> 
+                              <span style="width:18%;"></span>
+                              <span>จำนวน</span>
+                              <span class="dot" style="width:10%;">Test</span>
+                              <span>คัน</span>
+                              <span style="width:3%;"></span>
+                              <span>แรงม้ารวม</span>
+                              <span class="dot" style="width:18%;">Test</span>
+                              <span>แรงม้า</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>2) </span>
+                              <span style="width:1%;"></span>
+                              <span>รถตัก</span> 
+                              <span style="width:22%;"></span>
+                              <span>จำนวน</span>
+                              <span class="dot" style="width:10%;">Test</span>
+                              <span>คัน</span>
+                              <span style="width:3%;"></span>
+                              <span>แรงม้ารวม</span>
+                              <span class="dot" style="width:18%;">Test</span>
+                              <span>แรงม้า</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>3) </span>
+                              <span style="width:1%;"></span>
+                              <span>รถขุด</span> 
+                              <span style="width:22%;"></span>
+                              <span>จำนวน</span>
+                              <span class="dot" style="width:10%;">Test</span>
+                              <span>คัน</span>
+                              <span style="width:3%;"></span>
+                              <span>แรงม้ารวม</span>
+                              <span class="dot" style="width:18%;">Test</span>
+                              <span>แรงม้า</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>4) </span>
+                              <span style="width:1%;"></span>
+                              <span>เครื่องอัดลม</span> 
+                              <span style="width:18.7%;"></span>
+                              <span>จำนวน</span>
+                              <span class="dot" style="width:10%;">Test</span>
+                              <span>คัน</span>
+                              <span style="width:3%;"></span>
+                              <span>แรงม้ารวม</span>
+                              <span class="dot" style="width:18%;">Test</span>
+                              <span>แรงม้า</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>5) </span>
+                              <span style="width:1%;"></span>
+                              <span>เครื่องเจาะ</span> 
+                              <span style="width:19.5%;"></span>
+                              <span>จำนวน</span>
+                              <span class="dot" style="width:10%;">Test</span>
+                              <span>คัน</span>
+                              <span style="width:3%;"></span>
+                              <span>แรงม้ารวม</span>
+                              <span class="dot" style="width:18%;">Test</span>
+                              <span>แรงม้า</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>6) </span>
+                              <span style="width:1%;"></span>
+                              <span>เครื่องเจาะแจคแฮมเมอร์</span> 
+                              <span style="width:12.5%;"></span>
+                              <span>จำนวน</span>
+                              <span class="dot" style="width:10%;">Test</span>
+                              <span>คัน</span>
+                              <span style="width:3%;"></span>
+                              <span>แรงม้ารวม</span>
+                              <span class="dot" style="width:18%;">Test</span>
+                              <span>แรงม้า</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>7) </span>
+                              <span style="width:1%;"></span>
+                              <span>เครื่องสูบทราย</span> 
+                              <span style="width:17.5%;"></span>
+                              <span>จำนวน</span>
+                              <span class="dot" style="width:10%;">Test</span>
+                              <span>คัน</span>
+                              <span style="width:3%;"></span>
+                              <span>แรงม้ารวม</span>
+                              <span class="dot" style="width:18%;">Test</span>
+                              <span>แรงม้า</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>8) </span>
+                              <span style="width:1%;"></span>
+                              <span>เครื่องสูบน้ำ</span> 
+                              <span style="width:19%;"></span>
+                              <span>จำนวน</span>
+                              <span class="dot" style="width:10%;">Test</span>
+                              <span>คัน</span>
+                              <span style="width:3%;"></span>
+                              <span>แรงม้ารวม</span>
+                              <span class="dot" style="width:18%;">Test</span>
+                              <span>แรงม้า</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>9) </span>
+                              <span style="width:1%;"></span>
+                              <span>รถบรรทุกเทหลัง</span> 
+                              <span style="width:16.6%;"></span>
+                              <span>จำนวน</span>
+                              <span class="dot" style="width:10%;">Test</span>
+                              <span>คัน</span>
+                              <span style="width:3%;"></span>
+                              <span>แรงม้ารวม</span>
+                              <span class="dot" style="width:18%;">Test</span>
+                              <span>แรงม้า</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>10) </span>
+                              <span style="width:1%;"></span>
+                              <span>รถบรรทุก</span> 
+                              <span style="width:19.5%;"></span>
+                              <span>จำนวน</span>
+                              <span class="dot" style="width:10%;">Test</span>
+                              <span>คัน</span>
+                              <span style="width:3%;"></span>
+                              <span>แรงม้ารวม</span>
+                              <span class="dot" style="width:18%;">Test</span>
+                              <span>แรงม้า</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>11) </span>
+                              <span style="width:1%;"></span>
+                              <span>สายพานลำเลียง</span> 
+                              <span style="width:16%;"></span>
+                              <span>จำนวน</span>
+                              <span class="dot" style="width:10%;">Test</span>
+                              <span>เส้น</span>
+                              <span style="width:2.6%;"></span>
+                              <span>แรงม้ารวม</span>
+                              <span class="dot" style="width:18%;">Test</span>
+                              <span>แรงม้า</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>12) </span>
+                              <span style="width:1%;"></span>
+                              <span>การขนส่งด้วยลวดสลิง</span> 
+                              <span style="width:13%;"></span>
+                              <span>จำนวน</span>
+                              <span class="dot" style="width:10%;">Test</span>
+                              <span>เส้น</span>
+                              <span style="width:2.6%;"></span>
+                              <span>แรงม้ารวม</span>
+                              <span class="dot" style="width:18%;">Test</span>
+                              <span>แรงม้า</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>13) </span>
+                              <span style="width:1%;"></span>
+                              <span>โรงแต่งแร่</span> 
+                              <span style="width:37%;"></span>
+                              <span>แรงม้ารวม</span>
+                              <span class="dot" style="width:18%;">Test</span>
+                              <span>แรงม้า</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>14) </span>
+                              <span style="width:1%;"></span>
+                              <span>เครื่องจักรและอุปกรณ์กระแสไฟฟ้า</span> 
+                              <span style="width:24.7%;"></span>
+                              <span>แรงม้ารวม</span>
+                              <span class="dot" style="width:18%;">Test</span>
+                              <span>แรงม้า</span>
+                              </p>        
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>15) </span>
+                              <span style="width:1%;"></span>
+                              <span>อื่น ๆ</span> 
+                              <span class="dot" style="width:18%;">Test</span>
+                              <span style="width:21.6%;"></span>
+                              <span>แรงม้ารวม</span>
+                              <span class="dot" style="width:18%;">Test</span>
+                              <span>แรงม้า</span>
+                              </p>        
+                         </tr>
+               </table>
+          
+               <table style="width:100%">
+               <td class="p-btm-5">
+                    <tr>
+                         <span>7. รายละเอียดเชื้อเพลิงที่ใช้ในเดือนนี้</span>     
+                    </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>1) </span>
+                              <span style="width:1%;"></span>
+                              <span>น้ำมันเบนซิน</span> 
+                              <span class="dot" style="width:30.4%;">Test</span>
+                              <span>ลิตร</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>2) </span>
+                              <span style="width:1%;"></span>
+                              <span>น้ำมันดีเซล</span> 
+                              <span class="dot" style="width:31.3%;">Test</span>
+                              <span>ลิตร</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>3) </span>
+                              <span style="width:1%;"></span>
+                              <span>น้ำมันหล่อลื่น</span> 
+                              <span class="dot" style="width:30.4%;">Test</span>
+                              <span>ลิตร</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>4) </span>
+                              <span style="width:1%;"></span>
+                              <span>ไฟฟ้า</span> 
+                              <span class="dot" style="width:34%;">Test</span>
+                              <span>ยูนิต</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>5) </span>
+                              <span style="width:1%;"></span>
+                              <span>เชื้อเพลิงอื่น ๆ</span> 
+                              <span class="dot" style="width: 30%;">Test</span>
+                              <span>ลิตร</span>
+                              </p>     
+                         </tr>
+               </table>
+
+               <table style="width:100%">
+               <td class="p-btm-5">
+                    <tr>
+                         <span>8. รายละเอียดและปริมาณการใช้วัตถุระเบิดในเดือนนี้(ถ้ามี)</span>     
+                    </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>1) </span>
+                              <span style="width:1%;"></span>
+                              <span>วัตถุระเบิด</span> 
+                              <span class="dot" style="width:32%;">Test</span>
+                              <span></span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>2) </span>
+                              <span style="width:1%;"></span>
+                              <span>แก็ป</span> 
+                              <span class="dot" style="width:35%;">Test</span>
+                              <span>ดอก</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>3) </span>
+                              <span style="width:1%;"></span>
+                              <span>ปุ๋ยแอมโมเนีย</span> 
+                              <span class="dot" style="width:30.4%;">Test</span>
+                              <span>กิโลกรัม</span>
+                              </p>     
+                         </tr>
+                         <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>4) </span>
+                              <span style="width:1%;"></span>
+                              <span>อื่น ๆ (ระบุ)</span> 
+                              <span class="dot" style="width:32%;">Test</span>
+                              </p>     
+                         </tr>
+               </table>
+               <table style="width:100%">
+               <td class="p-btm-5">
+                    <tr>
+                              <p class="p-wrap">
+                                   <span>9. จำนวนพนักงานและคนงาน</span>
+                                   <span class="dot" style="width:15%;">Test</span>
+                                   <span>คน</span>
+                              </p>
+                         </td>
+                    </tr>   
+               </table>
+               <td class="p-btm-5">
+                    <tr>
+                              <p class="p-wrap">
+                                   <span>10. จำนวนวันทำงานในเดือนนี้</span>
+                                   <span class="dot" style="width:14.7%;">Test</span>
+                                   <span>วัน</span>
+                              </p>
+                         </td>
+                    </tr>   
+               </table>
+               <td class="p-btm-5">
+                    <tr>
+                              <p class="p-wrap">
+                                   <span>11. ผลการปฏิบัติงานตามมารตรการป้องกันและแก้ไขผลกระทบสิ่งแวดล้อม(ถ้ามี)(รายละเอียดตามแบบ)</span>
+                              </p>
+                         </td>
+                    </tr>   
+               </table>
+               <td class="p-btm-5">
+                    <tr>
+                              <p class="p-wrap">
+                                   <span>12. แผนที่แสดงการทำเหมือง(รายละเอียดตามแบบ)กรณีประทานบัตร ชนิดหินอุตสาหกรรมเพื่อซีเมนต์ และถ่านหิน ให้แนบรายละเอียดภาพถ่ายและการคำนวณหาปริมาณหินและแร่ที่ผลิตได้ จากผลการรังวัดโดยอากาศยานไร้คนขับประกอบด้วย</span>
+                              </p>
+                         </td>
+                    </tr>   
+               </table>
+          <table style="width:100%">
+          <tr>
+               <td style="width: 5%;">13.</td>
+               <td>รายละเอียดการผลิตแร่</td>
+          </tr> 
+          <table class="table table-bordered">  
+               <thead>
+                    <tr>
+                         <th>ชนิดแร่</th>  
+                         <th>สภาพ/คุณลักษณะ</th>  
+                         <th>ยอดยกมา(ตัน)</th>  
+                         <th>ผลิตได้(ตัน)</th>
+                         <th>ส่งไปแต่งแร่(ตัน)</th>
+                         <th>จำหน่ายแร่ออก(ตัน)</th>
+                         <th>ยอดคงเหลือ ณ สิ้นเดือน(ตัน)</th>  
+                    </tr>
+               </thead>
+               <tbody>  
+                    <tr>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                    </tr>
+                    <tr>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                    </tr>
+                    <tr>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                    </tr>
+                    <tr>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                    </tr>
+                    <tr>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                    </tr>
+                    <tr>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                    </tr>
+               </tbody>  
+          </table>
+          <table style="width:100%">
+          <tr>
+               <td style="width: 5%;">14.</td>
+               <td>รายละเอียดการจำหน่ายแร่</td>
+          </tr> 
+          <table class="table table-bordered">  
+               <thead>
+                    <tr>
+                         <th>ชนิดแร่</th>  
+                         <th>สภาพ/คุณลักษณะ</th>  
+                         <th>ชื่อ/ทะเบียนของผู้ซื้อแร่หรือผู้ใช้แร่</th>  
+                         <th>เพื่อใช้ภายในประเทศ(ตัน)</th>
+                         <th>ประเภทอุตสาหกรรมที่นำแร่ไปใช้</th>
+                         <th>เลขที่ ใบเสร็จรับเงิน ค่าภาคหลวงแร่/ลงวันที่</th>
+                         <th>ค่าภาพหลวง(บาท)</th>
+                         <th>เพื่อการส่งออกต่างประเทศ(ตัน)/ด่านที่ส่งออก</th>
+                    </tr>  
+               </thead>
+               <tbody>
+                    <tr>
+                         <td style="border: none;">xx</td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                    </tr>
+                    <tr>
+                         <td style="border: none;">xx</td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                    </tr>
+                    <tr>
+                         <td style="border: none;">xx</td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                    </tr>
+                    <tr>
+                         <td style="border: none;">xx</td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                         <td style="border: none;"></td>
+                    </tr>
+               </tbody>  
+          </table>
+          <table style="width: 100%;">
+               <tr>
+                    <td style="width: 50%;">
+                         <div class="sign">
+                              <p class="p-btm-5">ลงชื่อ <span class="dot" style="display: inline-block;width: 200px"></span></p>
+                              <p class="p-btm-5">(<span class="dot" style="display: inline-block;width: 200px"></span>)</p>
+                         </div>
+                    </td>
+                    <td style="width: 50%;">
+                         <div class="sign">
+                              <p class="p-btm-5">ลงชื่อ <span class="dot" style="display: inline-block;width: 200px"></span></p>
+                              <p class="p-btm-5">(<span class="dot" style="display: inline-block;width: 200px"></span>)</p>
+                         </div>
+                    </td>
+               </tr>
+          </table>
+          <td class="p-btm-5">
+                    <tr>
+                         <span>15. บันทึกของเจ้าหน้าที่ผู้ตรวจสอบรายงาน</span>     
+                    </tr>   
+                    <tr>
+                              <p class="p-wrap p-left-30">
+                              <span>1) การชำระค่าภาคหลวงแร่ </span>
+                              </p>     
+                    </tr>
+                    <tr>
+                              <span>1) การชำระค่าภาคหลวงแร่ </span>     
+                    </tr>
+                    <tr>
+                              <p class="p-wrap">
+                                   <span></span>
+                                   <span class="dot" style="width:100%;"></span>
+                              </p>
+                         </td>
+                    </tr>
+                    <tr>
+                              <p class="p-wrap">
+                                   <span></span>
+                                   <span class="dot" style="width:100%;"></span>
+                              </p>
+                         </td>
+                    </tr> 
+                    <td style="width: 50%;">
+                         <div class="sign">
+                              <p class="p-btm-5">ลงชื่อผู้ตรวจสอบ <span class="dot" style="display: inline-block;width: 200px"></span></p>
+                              <p class="p-btm-5">(<span class="dot" style="display: inline-block;width: 200px"></span>)</p>
+                         </div>
+                    </td>
+                    </tr>
+                    <td style="width: 50%;">
+                         <div class="sign">
+                              <p class="p-btm-5">เจ้าพนักงานอุตสาหกรรมแร่ประจำท้องที่ <span style="display: inline-block;width: 200px"></span></p>
+                         </div>
+                    </td>
+                    </tr>
+                    <tr>
+                              <span>1) ข้อมูลการผลิตและข้อมูลทางวิชาการ </span>     
+                    </tr>
+                    <tr>
+                              <p class="p-wrap">
+                                   <span></span>
+                                   <span class="dot" style="width:100%;"></span>
+                              </p>
+                         </td>
+                    </tr>
+                    <tr>
+                              <p class="p-wrap">
+                                   <span></span>
+                                   <span class="dot" style="width:100%;"></span>
+                              </p>
+                         </td>
+                    </tr> 
+                    <td style="width: 50%;">
+                         <div class="sign">
+                              <p class="p-btm-5">ลงชื่อผู้ตรวจสอบ <span class="dot" style="display: inline-block;width: 200px"></span></p>
+                              <p class="p-btm-5">(<span class="dot" style="display: inline-block;width: 200px"></span>)</p>
+                         </div>
+                    </td>
+                    </tr>
+                    <td style="width: 50%;">
+                         <div class="sign">
+                              <p class="p-btm-5">วิศวกรเหมืองแร่ ผู้ตรวจสอบ <span style="display: inline-block;width: 200px"></span></p>
+                         </div>
+                    </td>
+                    </tr>
+               </table>
+               </div>     
+          </div>
+     </div>';
+      }  
+      return $output;  
+ }  
+ if(isset($_POST["generate_pdf"]))  
+ {  
+      require_once('TCPDF-main/tcpdf.php');  
+      $obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);  
+      $obj_pdf->SetCreator(PDF_CREATOR);  
+      $obj_pdf->SetTitle("Generate HTML Table Data To PDF From MySQL Database Using TCPDF In PHP");  
+      $obj_pdf->SetHeaderData('', '', PDF_HEADER_TITLE, PDF_HEADER_STRING);  
+      $obj_pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));  
+      $obj_pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));  
+      $obj_pdf->SetDefaultMonospacedFont('helvetica');  
+      $obj_pdf->SetFooterMargin(PDF_MARGIN_FOOTER);  
+      $obj_pdf->SetMargins(PDF_MARGIN_LEFT, '10', PDF_MARGIN_RIGHT);  
+      $obj_pdf->setPrintHeader(false);  
+      $obj_pdf->setPrintFooter(false);  
+      $obj_pdf->SetAutoPageBreak(TRUE, 5);  
+     // $obj_pdf->SetFont('helvetica', '', 11);  
+      $obj_pdf->SetFont('freeserif', '', 15);
+      $obj_pdf->AddPage();  
+      $content = '';  
+     //  $content .= '  
+     // //  <h4 align="center">Generate HTML Table Data To PDF From MySQL Database Using TCPDF In PHP</h4><br /> 
+     // //  <table border="1" cellspacing="0" cellpadding="3">  
+     // //        <tr>  
+     // //            <th width="5%">Id</th>  
+     // //            <th width="30%">Name</th>  
+     // //            <th width="15%">Age</th>  
+     // //            <th width="50%">Email</th>  
+     // //       </tr> 
+           
+           
+     //  ';  
+     //  $content .= fetch_data();  
+      
+     $content .= '<div class="pdf-form">
+                    <div class="part-one">
+                         <div class="p-logo"><img width="100" height="100" src="https://hilight.kapook.com/image_fb/23/112228-new-408539.jpg" alt=""></div>
+                         <div class="p-head" style="text-align: center;">                       
+                              <table style="width:100%">
+                                   <tr>
+                                        <td style="font-size: 14px;font-weight: 600;margin-bottom: 30px;">กรมอุตุหกรรมพื้นฐานและการเหมืองแร่</td>
+                                   </tr>
+                                   <tr style="width:100%;text-align:center;">
+                                        <td style="">รายงานการทำเหมืืองประจำเดือน fcfccc</td>
+                                        <td style="">พ.ศ ttt </td>
+                                   </tr>
+                              </table>
+                         </div>  
+                         <div class="p-body" style="width: 100%">
+                              
+
+                              <table style="width:100%">
+                                   <tr>
+                                        <td style="width: 5%;">1.</td>
+                                        <td>รายละเอียดผู้ถือประทานบัตร</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">ชื่อผู้ถือประทานบัตร </td>
+                                        <td style="width: 25%;background: url("https://i.stack.imgur.com/otJN0.png") repeat-x bottom; ">Test</td>
+                                        <td style="width: 25%">เลขที่ </td>
+                                        <td style="width: 25%">Test</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 15%">ตั้งอยู่ที่ ตำบล</td>
+                                        <td style="width: 15%">License_Sub_District</td>
+                                        <td style="width: 10%">อำเภอ</td>
+                                        <td style="width: 15%">License_District</td>
+                                        <td style="width: 10%">จังหวัด</td>
+                                        <td style="width: 15%">License_Province</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">ประทานบัตรสิ้นอายุ วันที่</td>
+                                        <td style="width: 15%">Test</td>
+                                        <td style="width: 10%">เดือน</td>
+                                        <td style="width: 15%">Test</td>
+                                        <td style="width: 10%">พ.ศ.</td>
+                                        <td style="width: 15%">Test</td>
+                                   </tr>
+                              </table>
+                              <table style="width:100%">
+                                   <tr>
+                                        <td style="width: 5%;">2.</td>
+                                        <td>ชื่อผู้รับช่วงการทำเหมือง</td>
+                                        <td style="width: 25%;background: url("https://i.stack.imgur.com/otJN0.png") repeat-x bottom; ">Test</td>
+                                   </tr>
+                              </table>
+                              <table style="width:100%">
+                                   <tr>
+                                        <td style="width: 5%;">3.</td>
+                                        <td>ชนิดแร่</td>
+                                        <td style="width: 25%;background: url("https://i.stack.imgur.com/otJN0.png") repeat-x bottom; ">Test</td>
+                                   </tr>
+                              </table>
+                              <table style="width:100%">
+                                   <tr>
+                                        <td style="width: 5%;">4.</td>
+                                        <td>ชื่อวิศวกรผู้ควบคุม</td>
+                                        <td style="width: 25%;background: url("https://i.stack.imgur.com/otJN0.png") repeat-x bottom; ">Test</td>
+                                        <td style="width: 25%">เลขที่ใบอนุญาตประกอบวิชาชีพ</td>
+                                        <td style="width: 15%">Test</td>
+                                   </tr>
+                              </table>
+                              <table style="width:100%">
+                                   <tr>
+                                        <td style="width: 5%;">5.</td>
+                                        <td>เนื้อที่ที่ได้รับประทานบัตร จำนวน</td>
+                                        <td style="width: 25%;background: url("https://i.stack.imgur.com/otJN0.png") repeat-x bottom; ">Test</td>
+                                        <td style="width: 15%">แปลง รวมเนื้อที่</td>
+                                        <td style="width: 15%">Test</td>
+                                        <td style="width: 15%">ไร่</td>
+                                        <td style="width: 15%">Test</td>
+                                        <td style="width: 15%">ไร่</td>
+                                        <td style="width: 15%">Test</td>
+                                        <td style="width: 15%">ตารางวา</td>
+                                   </tr>
+                              </table>
+                              <table style="width:100%">
+                                   <tr>
+                                        <td style="width: 5%;">6.</td>
+                                        <td>รายละเอียดเครื่องจักรและอุปกรณ์ในการทำเหมือง</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">1) รถแทรกเตอร์ </td>
+                                        <td style="width: 10%">จำนวน </td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 25%">คัน แรงม้ารวม</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">แรงม้า</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">2) รถตัก </td>
+                                        <td style="width: 10%">จำนวน </td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 25%">คัน แรงม้ารวม</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">แรงม้า</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">3) รถขุด </td>
+                                        <td style="width: 10%">จำนวน </td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 25%">คัน แรงม้ารวม</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">แรงม้า</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">4) เครื่องอัดลม </td>
+                                        <td style="width: 10%">จำนวน </td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 25%">คัน แรงม้ารวม</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">แรงม้า</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">5) เครื่องเจาะ </td>
+                                        <td style="width: 10%">จำนวน </td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 25%">คัน แรงม้ารวม</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">แรงม้า</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">6) เครื่องเจาะแจคแฮมเมอร์ </td>
+                                        <td style="width: 10%">จำนวน </td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 25%">คัน แรงม้ารวม</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">แรงม้า</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">7) เครื่องสูบทราย </td>
+                                        <td style="width: 10%">จำนวน </td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 25%">คัน แรงม้ารวม</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">แรงม้า</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">8) เครื่องสูบน้ำ </td>
+                                        <td style="width: 10%">จำนวน </td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 25%">คัน แรงม้ารวม</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">แรงม้า</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">9) รถบรรทุกเทหลัง </td>
+                                        <td style="width: 10%">จำนวน </td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 25%">คัน แรงม้ารวม</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">แรงม้า</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">10) รถบรรทุก </td>
+                                        <td style="width: 10%">จำนวน </td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 25%">คัน แรงม้ารวม</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">แรงม้า</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">11) สายพานลำเลียง </td>
+                                        <td style="width: 10%">จำนวน </td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 25%">เส้น แรงม้ารวม</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">แรงม้า</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">12) การขนส่งด้วยลวดสลิง </td>
+                                        <td style="width: 10%">จำนวน </td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 25%">เส้น แรงม้ารวม</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">แรงม้า</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">13) โรงแต่งแร่ </td>
+                                        <td style="width: 25%">แรงม้ารวม</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">แรงม้า</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">14) เครื่องจักรและอุปกรณ์ผลิตกระแสไฟฟ้า</td>
+                                        <td style="width: 25%">แรงม้ารวม</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">แรงม้า</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">15) อื่น ๆ </td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 25%">แรงม้ารวม</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">แรงม้า</td>
+                                   </tr>
+                              </table>
+                              <table style="width:100%">
+                                   <tr>
+                                        <td style="width: 5%;">7.</td>
+                                        <td>รายละเอียดเชื้อเพลิงใช้ในเดือนนี้</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 25%">1) น้ำมันเบนซิน </td>                     
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">ลิตร</td>
+                                   </tr>
+                                   <tr>
+                                   <td style="width: 25%">2) น้ำมันดีเซล </td>                     
+                                   <td style="width: 10%">Test</td>
+                                   <td style="width: 10%">ลิตร</td>
+                                   </tr>
+                                   <tr>
+                                   <td style="width: 25%">3) น้ำมันหล่อลื่น </td>                     
+                                   <td style="width: 10%">Test</td>
+                                   <td style="width: 10%">ลิตร</td>
+                                   </tr>
+                                   <tr>
+                                   <td style="width: 25%">4) ไฟฟ้า </td>                     
+                                   <td style="width: 10%">Test</td>
+                                   <td style="width: 10%">ยูนิต</td>
+                                   </tr>
+                                   <tr>
+                                   <td style="width: 25%">4) เชื้อเพลิงอื่น ๆ </td>                     
+                                   <td style="width: 10%">Test</td>
+                                   <td style="width: 10%">ลิตร</td>
+                                   </tr>
+                              </table> 
+                         <table style="width:100%">
+                                   <tr>
+                                        <td style="width: 5%;">8.</td>
+                                        <td>รายละเอียดและปริมาณการใช้วัตถุระเบิดในเดือนนี้(ถ้ามี)</td>
+                                   </tr>
+                                   <tr>
+                                   <td style="width: 25%">1) วัตถุระเบิด </td>                     
+                                   <td style="width: 10%">Test</td>
+                                   <td style="width: 10%">ดอก</td>
+                                   </tr>
+                                   <tr>
+                                   <td style="width: 25%">2) แก็ป </td>                     
+                                   <td style="width: 10%">Test</td>
+                                   <td style="width: 10%">ดอก</td>
+                                   </tr>
+                                   <tr>
+                                   <td style="width: 25%">3) ปุ๋ยแอมโมเนีย </td>                     
+                                   <td style="width: 10%">Test</td>
+                                   <td style="width: 10%">กิโลกรัม</td>
+                                   </tr>
+                                   <tr>
+                                   <td style="width: 25%">4) อื่น ๆ (ระบุ) </td>                     
+                                   <td style="width: 10%">Test</td>
+                                   </tr>
+                         </table> 
+                         <table style="width:100%">
+                                   <tr>
+                                        <td style="width: 5%;">9.</td>
+                                        <td>จำนวนพนักงานและคนงาน</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">คน</td>
+                                   </tr>
+                         </table>
+                         <table style="width:100%">
+                                   <tr>
+                                        <td style="width: 5%;">9.</td>
+                                        <td>จำนวนพนักงานและคนงาน</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">คน</td>
+                                   </tr>
+                         </table>
+                         <table style="width:100%">
+                                   <tr>
+                                        <td style="width: 5%;">10.</td>
+                                        <td>จำนวนวันทำงานในเดือนนี้</td>
+                                        <td style="width: 10%">Test</td>
+                                        <td style="width: 10%">วัน</td>
+                                   </tr>
+                         </table>
+                         <table style="width:100%">
+                         <tr>
+                              <td style="width: 5%;">11.</td>
+                              <td>ผลการปฏิบัติงานตามมารตรการป้องกันและแก้ไขผลกระทบสิ่งแวดล้อม(ถ้ามี)(รายละเอียดตามแบบ)</td>
+                         </tr>
+                         </table>
+                         <table style="width:100%">
+                         <tr>
+                              <td style="width: 5%;">12.</td>
+                              <td>แผนที่แสดงการทำเหมือง(รายละเอียดตามแบบ)กรณีประทานบัตร ชนิดหินอุตสาหกรรมเพื่อซีเมนต์ และถ่านหิน ให้แนบรายละเอียดภาพถ่ายและการคำนวณหาปริมาณหินและแร่ที่ผลิตได้ จากผลการรังวัดโดยอากาศยานไร้คนขับประกอบด้วย</td>
+                         </tr>
+                         </table>
+                         <table style="width:100%">
+                         <tr>
+                              <td style="width: 5%;">13.</td>
+                              <td>รายละเอียดการผลิตแร่</td>
+                         </tr> 
+                         <table class="table table-bordered">  
+                         <tr>  
+                              <th width="10%">ชนิดแร่</th>  
+                              <th width="10%">สภาพ/คุณลักษณะ</th>  
+                              <th width="15%">ยอดยกมา(ตัน)</th>  
+                              <th width="10%">ผลิตได้(ตัน)</th>
+                              <th width="10%">ส่งไปแต่งแร่(ตัน)</th>
+                              <th width="10%">จำหน่ายแร่ออก(ตัน)</th>
+                              <th width="10%">ยอดคงเหลือ ณ สิ้นเดือน(ตัน)</th>  
+                         </tr>  
+                         </table>
+                         <table style="width:100%">
+                         <tr>
+                              <td style="width: 5%;">14.</td>
+                              <td>รายละเอียดการจำหน่ายแร่</td>
+                         </tr> 
+                         <table class="table table-bordered">  
+                         <tr>  
+                              <th width="10%">ชนิดแร่</th>  
+                              <th width="10%">สภาพ/คุณลักษณะ</th>  
+                              <th width="15%">ชื่อ/ทะเบียนของผู้ซื้อแร่หรือผู้ใช้แร่</th>  
+                              <th width="10%">เพื่อใช้ภายในประเทศ(ตัน)</th>
+                              <th width="10%">ประเภทอุตสาหกรรมที่นำแร่ไปใช้</th>
+                              <th width="10%">เลขที่ ใบเสร็จรับเงิน ค่าภาคหลวงแร่/ลงวันที่</th>
+                              <th width="10%">ค่าภาพหลวง(บาท)</th>
+                              <th width="10%">เพื่อการส่งออกต่างประเทศ(ตัน)/ด่านที่ส่งออก</th>
+                         </tr>  
+                         </table>
+                         <table>
+                         <tr>
+                              <td style="width: 5%;">ลงชื่อ</td>
+                              <td>...........................</td>
+                         </tr>
+                         <tr>
+                              <td>(.....................)</td>
+                         </tr>
+                         </table>
+                         <table>
+                         <tr>
+                              <td style="width: 5%;">ลงชื่อ</td>
+                              <td>...........................</td>
+                         </tr>
+                         <tr>
+                              <td>(.....................)</td>
+                         </tr>
+                         </table>
+                    
+                         <table style="width:100%">
+                                   <tr>
+                                        <td style="width: 5%;">15.</td>
+                                        <td>บันทึกของเจ้าหน้าที่ผู้ตรวจการ</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 5%;">1)</td>
+                                        <td>การชำระค่าภาคหลวงแร่</td>
+                                   </tr>
+                                   <tr>
+                                        <td>...</td>
+                                   </tr>
+                                   <tr>
+                                   <td style="width: 5%;">ลงชื่อ</td>
+                                    <td>...........................</td>
+                                   </tr>
+                                   <tr>
+                                   <td>(.....................)</td>
+                                   </tr>
+                                   <tr>
+                                   <td>เจ้าพนักงานอุตสาหกรรมแร่ประจำท้องที่</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="width: 5%;">2)</td>
+                                        <td>ข้อมูลการผลิตและข้อมูลทางวิชาการ</td>
+                                   </tr>
+                                   <tr>
+                                        <td>...</td>
+                                   </tr>
+                                   <tr>
+                                   <td style="width: 5%;">ลงชื่อ</td>
+                                    <td>...........................</td>
+                                   </tr>
+                                   <tr>
+                                   <td>(.....................)</td>
+                                   </tr>
+                                   <tr>
+                                   <td>วิศวกรเหมืองแร่ ผู้ตรวจสอบ</td>
+                                   </tr>
+                         </table>
+                         </div>     
+                    </div>
+               </div>';
+
+      $obj_pdf->writeHTML($content);  
+      $obj_pdf->Output('file.pdf', 'I');  
+ }  
+ ?>  
+<!DOCTYPE html>  
+ <html>  
+        
+           <title>SoftAOX | Generate HTML Table Data To PDF From MySQL Database Using TCPDF In PHP</title>  
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+           <link rel="stylesheet" href="Css/pdf.css" />   
+          <style>
+               /* Global */
+               .dot{
+                    background: url(https://i.stack.imgur.com/otJN0.png) repeat-x bottom;
+                    text-align: center;
+                    min-height: 6px;
+               }
+               .p-left-15{
+                    padding-left: 15px;
+               }
+               .p-left-30{
+                    padding-left: 30px;
+               }
+               .p-btm-5{
+                    padding-bottom: 5px;
+               }
+               table td p{margin-bottom: 0;}
+               .p-wrap{
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: 100%;
+               }
+               .sign {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: column;
+                    align-items: center;
+               }
+               .sign .dot{
+                    background-position: 0 2px;
+               }
+
+
+               .p-head table{
+                    width: 100%;
+                    margin: 20px 0;
+               }
+               .p-head table tr:first-child td{
+                    width: 100%;
+                    font-size: 16px;
+                    font-weight: 900;
+               }
+               .p-head table td.p-head--sm{
+                    padding-top: 20px;
+               }
+               .p-head table td.p-head--sm span{
+                    display: inline-block;
+               }
+               .p-head table td.p-head--sm .w-12{
+                    width: 120px;
+               }
+               .p-head table td.p-head--sm .w-7{
+                    width: 70px;
+               }
+               
+               @media print {
+                              body{
+                                   width: 21cm;
+                                   height: 29.7cm;
+                                   /* margin: 30mm 45mm 30mm 45mm;  */
+                                   /* change the margins as you want them to be. */
+               } 
+               }
+              
+          </style>             
+      </head>  
+      <body>  
+           
+           <div class="container">  
+                <div class="table-responsive">  
+                    <div class="col-md-12" align="right">
+                     <form method="post">  
+                          <input type="submit" name="generate_pdf" class="btn btn-success" value="Generate PDF" />  
+                     </form>  
+                     </div>
+                     <br/>
+                     <br/>
+                     <!-- <table class="table table-bordered">  
+                          <tr>  
+                               <th width="5%">Id</th>  
+                               <th width="30%">Name</th>  
+                               <th width="15%">Age</th>  
+                               <th width="50%">Email</th>  
+                          </tr>   -->
+
+                     <?php  
+                     echo fetch_data();  
+                     ?>  
+                     </table>  
+                </div>  
+           </div>
+
+
+          <div class="pdf-form">
+               <div class="part-one">
+                    <div class="p-logo"><img src="Image1.png" alt=""></div>
+                    <div class="p-head" style="text-align: center;">
+                         <tr>
+                         <td class="p-btm-5">
+                              <p class="p-wrap p-left-15">
+                                   <span>ตั้งอยู่ที่ ตำบล</span> 
+                                   <span class="dot" style="width:25%;">Test</span>
+                                   <span>อำเภอ</span>
+                                   <span class="dot" style="width:25.2%;">Test</span>
+                                   <span>จังหวัด</span>
+                                   <span class="dot" style="width:36%;">'.$_GET["License_Province"].'</span>
+                              </p>
+                         </td>
+                    </tr>
+
+
+
+
+               </div> 
+          </div>
+
+
+      </body>  
+</html> 
+
